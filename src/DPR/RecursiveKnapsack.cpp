@@ -47,10 +47,10 @@ int RecursiveKnapsack::_solve(const Problem* instance, int nItems, int capacity)
 
         if (item->weight > capacity) {
             this->items[item->id - 1] = 0;
-            this->memo[nItems][capacity] = _solve(instance, nItems - 1, capacity);
+            this->memo[nItems][capacity] = this->_solve(instance, nItems - 1, capacity);
         } else {
-            int notInSolution = _solve(instance, nItems - 1, capacity);
-            int inSolution = _solve(instance, nItems - 1, capacity - item->weight) + item->value;
+            int notInSolution = this->_solve(instance, nItems - 1, capacity);
+            int inSolution = this->_solve(instance, nItems - 1, capacity - item->weight) + item->value;
 
             if (notInSolution > inSolution) {
                 this->items[item->id - 1] = 0;
