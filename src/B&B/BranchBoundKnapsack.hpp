@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "../items/items.hpp"
+#include "../Items/items.hpp"
 
 using namespace std;
 
