@@ -18,10 +18,10 @@ class Problem {
    private:
     int capacity;
     int nItems;
-    vector<Item *> *items;
+    vector<Item *> items;
 
    public:
-    Problem(int capacity, int nItems, vector<Item *> *items = NULL);
+    Problem(int capacity, int nItems);
     ~Problem();
 
     /**
