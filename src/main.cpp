@@ -1,7 +1,7 @@
 #include <iostream>
 
 // #include "B&B/BranchBoundKnapsack.hpp"
-// #include "DPI/IterativeKnapsack.hpp"
+#include "DPI/IterativeKnapsack.hpp"
 #include "DPR/RecursiveKnapsack.hpp"
 
 using namespace std;
@@ -19,9 +19,15 @@ int main(int argc, char** argv) {
         instance->insert(new Item(item, weight, price));
     }
 
+    cout << "\nRecursive DP Knapsack" << endl;
     RecursiveKnapsack* dpr = new RecursiveKnapsack(nItems, capacity);
     dpr->solve(instance);
     dpr->printSolution(instance);
+
+    cout << "\nIterative DP Knapsack" << endl;
+    IterativeKnapsack* dpi = new IterativeKnapsack(nItems, capacity);
+    dpi->solve(instance);
+    dpi->printSolution(instance);
 
     delete instance;
 
