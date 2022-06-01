@@ -22,14 +22,14 @@ void BranchBoundKnapsack::initialSolution(const Problem* instance) {
     for (int i = 1; i <= instance->getSize(); i++){
         Item* item = instance->getItem(i - 1);
         pair<double, int> x;
-        x.first = item->value / item->weight;
+        x.first = (double)item->value / (double)item->weight;
         x.second = i - 1;
 
         proportion.push_back(x);
     }
 
     this->valueProportion = proportion;
-    // sort(proportion.begin(), proportion.end(), greater<pair<double, int>>());
+    sort(proportion.begin(), proportion.end(), greater<pair<double, int>>());
     
     int capacity = instance->getCapacity();
 
@@ -66,7 +66,6 @@ bool BranchBoundKnapsack::isConsistent(const Problem* instance, vector<int> item
     int counter = 0;
     
     for (int i : items) {
-        // cout << "Item " << counter << ": " << i << endl;
         if (i == 1) {
             totalWeight += instance->getItem(counter)->weight;
 
@@ -95,14 +94,9 @@ bool BranchBoundKnapsack::isPromissing(const Problem* instance, vector<int> item
     vector<pair<double, int>> proportion = this->valueProportion;
     sort(proportion.begin() + idx + 1, proportion.end(), greater<pair<double, int>>());
 
-    // for (int i = 0; i < (int) proportion.size(); i++){
-    //     cout << proportion[i].first << " ";
-    // }
-    // cout << endl;
-
     vector<int> nitems = items;
 
-    for (auto it = proportion.begin() + idx; it != proportion.end(); ++it){
+    for (auto it = proportion.begin() + idx + 1; it != proportion.end(); ++it){
         Item* item = instance->getItem(it->second);
         if (weight + item->weight <= instance->getCapacity()){
             weight += item->weight;
@@ -116,14 +110,7 @@ bool BranchBoundKnapsack::isPromissing(const Problem* instance, vector<int> item
             break;
         }
     }
-    
 
-    if (nValue == 1356){
-        cout << "Best: " << this->bestValue << ", Value: " << nValue << endl;
-        exit(0);
-    }
-    cout << "Best: " << this->bestValue << ", Value: " << nValue<< endl;
-    // exit(0);
     if (this->bestValue < nValue) return true;
     else return false;
 
@@ -132,12 +119,10 @@ bool BranchBoundKnapsack::isPromissing(const Problem* instance, vector<int> item
 void BranchBoundKnapsack::solve(const Problem* instance) {
 
     this->initialSolution(instance);
-    // this->printSolution(instance);
-    // exit(0);
 
-    // if (!(this->isComplete(this->bestAssignment) && this->isConsistent(instance, this->bestAssignment))){
-    //     cout << "Solução errada, revise o codigo!!!" << endl;
-    // }
+    if (!(this->isComplete(this->bestAssignment) && this->isConsistent(instance, this->bestAssignment))){
+        cout << "Solução errada, revise o codigo!!!" << endl;
+    }
 
     this->weight = 0;
     this->_solve(instance, this->items, 0, this->value, this->weight);
@@ -150,25 +135,15 @@ void BranchBoundKnapsack::_solve(const Problem* instance, vector<int> items, int
 
         this->bestAssignment = items;
         this->bestValue = value;
-        // this->printSolution(instance);
 
     } else{
         items[item] = 0;
-        // cout << " = 0: " << this->isConsistent(instance, items) << endl;
-        // cout << " = 0: " << this->isPromissing(instance, items, item, value, weight) << endl;
         if (this->isConsistent(instance, items) && this->isPromissing(instance, items, item, value, weight)){
-            // cout << "111\n";
             this->_solve(instance, items, item + 1, value, weight);
         }
 
         items[item] = 1;
-        // cout << " = 1: " << this->isConsistent(instance, items) << endl;
-        // cout << " = 1: " << this->isPromissing(instance, items, item, value, weight) << endl;
-        // cout << endl;
         if (this->isConsistent(instance, items) && this->isPromissing(instance, items, item, value, weight)){
-            // cout << "222\n";
-            // value += instance->getItem(item)->value;
-            // weight += instance->getItem(item)->weight;
             this->_solve(instance, items, item + 1, value + instance->getItem(item)->value, weight + instance->getItem(item)->weight);
         }
 
