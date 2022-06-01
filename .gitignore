@@ -28,8 +28,9 @@
 
 # Executables
 *.exe
-*.out
+#*.out
 *.app
 
 # Generic files
 *.pdf
+bin/main

@@ -1,0 +1,5 @@
+
+Iterative DP Knapsack
+The total value for the given instance is: 2246
+The items in the backpack are: [ 29 28 25 21 20 18 15 8 5 ]
+Time taken by function: 30 microseconds
