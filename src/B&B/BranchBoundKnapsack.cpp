@@ -117,9 +117,6 @@ bool BranchBoundKnapsack::isPromissing(const Problem* instance, vector<int> item
         }
     }
     
-    // if (nitems[19] == 1 && nitems[8] == 1 && nitems[7] == 1 && nitems[5] == 1 && nitems[3] == 1 && nitems[2] == 1){
-    //     cout << "Hello MOTHERFOCKER" << endl;
-    // }
 
     if (nValue == 1356){
         cout << "Best: " << this->bestValue << ", Value: " << nValue << endl;
