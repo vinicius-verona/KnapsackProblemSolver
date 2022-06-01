@@ -157,15 +157,11 @@ void BranchBoundKnapsack::printSolution(const Problem* instance) {
     cout << "The total value for the given instance is: " << this->bestValue << endl;
     cout << "The items in the backpack are: [ ";
 
-    int counter = 0;
-    for (int i : this->bestAssignment) {
-        if (i == 1) {
-            cout << counter + 1 << " ";
+    for (int i = this->bestAssignment.size(); i > 0; i--){
+        if (this->bestAssignment[i - 1] == 1) {
+            cout << i << " ";
         }
-
-        counter++;
     }
-
     cout << "]" << endl;
 
 }
