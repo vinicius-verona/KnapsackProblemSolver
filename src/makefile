@@ -11,5 +11,5 @@ test: clean all
 	../bin/main $(ALG) $(SIZE) $(CAP) < ../data/input/n-$(SIZE)x$(CAP)/instance-n-$(SIZE)x$(CAP).in
 
 all: 
-	g++ ./main.cpp ./Problem/Problem.cpp ./DPR/RecursiveKnapsack.cpp ./DPI/IterativeKnapsack.cpp -o ../bin/main -Wall
-# gcc ./main.cpp ./Problem/Problem.cpp ./DPR/RecursiveKnapsack.cpp ./DPI/IterativeKnapsack.cpp ./"B&B"/BranchBoundKnapsack.cpp -o ../bin/main -Wall
+	g++ ./main.cpp ./Problem/Problem.cpp ./DPR/RecursiveKnapsack.cpp ./DPI/IterativeKnapsack.cpp ./"B&B"/BranchBoundKnapsack.cpp -o ../bin/main -Wall
+# g++ ./main.cpp ./Problem/Problem.cpp ./DPR/RecursiveKnapsack.cpp ./DPI/IterativeKnapsack.cpp -o ../bin/main -Wall

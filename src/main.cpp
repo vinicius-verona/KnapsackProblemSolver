@@ -1,6 +1,6 @@
 #include <iostream>
 
-// #include "B&B/BranchBoundKnapsack.hpp"
+#include "B&B/BranchBoundKnapsack.hpp"
 #include "DPI/IterativeKnapsack.hpp"
 #include "DPR/RecursiveKnapsack.hpp"
 
@@ -28,6 +28,11 @@ int main(int argc, char** argv) {
     IterativeKnapsack* dpi = new IterativeKnapsack(nItems, capacity);
     dpi->solve(instance);
     dpi->printSolution(instance);
+
+    cout << "\nBranch and Bound DP Knapsack" << endl;
+    BranchBoundKnapsack* branchBound = new BranchBoundKnapsack(nItems, capacity);
+    branchBound->solve(instance);
+    branchBound->printSolution(instance);
 
     delete instance;
 
