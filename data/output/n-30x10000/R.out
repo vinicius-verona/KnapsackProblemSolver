@@ -1,5 +1,5 @@
 
 Recursive DP Knapsack
-The total value for the given instance is: 3934
-The items in the backpack are: [ 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 ]
-Time taken by function: 93 microseconds
+The total value for the given instance is: 3086
+The items in the backpack are: [ 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 ]
+Time taken by function: 273 microseconds
