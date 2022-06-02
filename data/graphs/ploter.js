@@ -81,7 +81,7 @@ var layout = {
         title: "Instância"
     },
     yaxis: {
-        title: "Tempo (milisec)"
+        title: "Tempo (microsec)"
     }
 };
 var graphOptions = {layout: layout, filename: "bb_graph", fileopt: "overwrite"};
@@ -105,7 +105,7 @@ var layout = {
         title: "Instância"
     },
     yaxis: {
-        title: "Tempo (milisec)"
+        title: "Tempo (microsec)"
     }
 };
 var graphOptions = {layout: layout, filename: "recursive_graph", fileopt: "overwrite"};
@@ -129,7 +129,7 @@ var layout = {
         title: "Instância"
     },
     yaxis: {
-        title: "Tempo (milisec)"
+        title: "Tempo (microsec)"
     }
 };
 var graphOptions = {layout: layout, filename: "iterative_graph", fileopt: "overwrite"};
@@ -151,7 +151,7 @@ var layoutGeral = {
     },
     yaxis: {
         title: {
-            text: "Tempo (milisec)"
+            text: "Tempo (microsec)"
         }
     }
 };
