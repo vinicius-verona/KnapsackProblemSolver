@@ -32,7 +32,7 @@
 *.app
 
 # Generic files
-*.pdf
+TrabalhoPratico_2_2021_2.pdf
 bin/main
 config.json
 node_modules
